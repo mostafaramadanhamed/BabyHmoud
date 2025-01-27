@@ -6,6 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:babyhmoud/baby_hmoud.dart';
+import 'package:babyhmoud/core/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -13,7 +14,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const BabyHmoudApp());
+    await tester.pumpWidget( BabyHmoudApp(appRouter: AppRouter(),));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
