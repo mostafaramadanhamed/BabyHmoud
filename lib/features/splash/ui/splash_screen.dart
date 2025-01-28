@@ -1,3 +1,5 @@
+import 'package:babyhmoud/core/helper/navigation_extension.dart';
+import 'package:babyhmoud/core/routing/routes.dart';
 import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +18,9 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
+    navigateToOnboardingScreen();
     _controller = AnimationController(
-      duration: const Duration(seconds: 3),
+      duration: const Duration(milliseconds: 2300),
       vsync: this,
     );
 
@@ -30,6 +33,13 @@ class _SplashScreenState extends State<SplashScreen>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void navigateToOnboardingScreen() {
+    Future.delayed(const Duration(milliseconds: 2500), () {
+      
+      context.pushReplacementNamed(Routes.onboarding);
+    });
   }
 
   @override

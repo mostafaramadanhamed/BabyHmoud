@@ -15,6 +15,10 @@ class BabyHmoudApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+                  primarySwatch: Colors.brown,),
+        themeMode: ThemeMode.light,
         initialRoute: Routes.splash,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
