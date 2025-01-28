@@ -1,4 +1,5 @@
 
+import 'package:babyhmoud/features/home/ui/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryGridView extends StatelessWidget {
@@ -18,28 +19,7 @@ class CategoryGridView extends StatelessWidget {
       ),
       itemCount: 6,
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.grey[200],
-          ),
-          child: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.category,
-                size: 50,
-              ),
-              Text(
-                "Category",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        );
+        return const CategoryItem();
       },
     );
   }
