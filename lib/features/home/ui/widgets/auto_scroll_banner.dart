@@ -19,7 +19,7 @@ class AutoScrollBanner extends StatelessWidget {
       options: CarouselOptions(
         autoPlayInterval: const Duration(seconds: 6),
         autoPlay: true,
-        aspectRatio: 1.5,
+        aspectRatio: 4/2,
         enlargeCenterPage: true,
       ),
       items: imgList

@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BabyHmoudApp extends StatelessWidget {
-
   final AppRouter appRouter;
   const BabyHmoudApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
-    return  ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-                  primarySwatch: Colors.brown,),
+          scaffoldBackgroundColor: const Color(0xFFFFFEFD),
+          primarySwatch: Colors.brown,
+        ),
         themeMode: ThemeMode.light,
         initialRoute: Routes.splash,
         onGenerateRoute: appRouter.onGenerateRoute,
