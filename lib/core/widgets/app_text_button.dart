@@ -62,6 +62,7 @@ class AppTextButton extends StatelessWidget {
         style: textStyle ??
             TextStyles.font20SemiBold.copyWith(
               color: textColor ?? Colors.white,
+              fontSize: 17.sp,
             ),
       ),
     );

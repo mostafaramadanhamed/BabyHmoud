@@ -12,16 +12,16 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
+      padding: EdgeInsets.symmetric(horizontal: 64.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // app logo
           Image.asset(
             'assets/images/logo.png',
-            height: 300.h,
+            height: 150.h,
           ),
-          45.ph,
+          60.ph,
           // login button
           AppTextButton(
             buttonText: 'Login',

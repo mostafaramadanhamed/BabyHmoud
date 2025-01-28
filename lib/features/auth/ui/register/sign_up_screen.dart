@@ -18,7 +18,7 @@ class SignUpScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Form(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          padding: EdgeInsets.symmetric(horizontal: 32.w),
           child: Column(
             children: [
               60.ph,
@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
               30.ph,
               
               // Sign up button
-              AppTextButton(buttonText: 'Sign In', onPressed: () {}),
+              AppTextButton(buttonText: 'Sign Up', onPressed: () {}),
               30.ph,
               // Already have an account?
               Text(
