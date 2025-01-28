@@ -1,4 +1,6 @@
+import 'package:babyhmoud/core/helper/navigation_extension.dart';
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
+import 'package:babyhmoud/core/routing/routes.dart';
 import 'package:babyhmoud/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,6 +27,7 @@ class OnBoardingScreen extends StatelessWidget {
             buttonText: 'Login',
             onPressed: () {
               // navigate to login screen
+              context.pushNamed(Routes.login);
             },
           ),
           20.ph,
@@ -33,6 +36,7 @@ class OnBoardingScreen extends StatelessWidget {
             buttonText: 'Register',
             onPressed: () {
               // navigate to register screen
+              context.pushNamed(Routes.register);
             },
           ),
           20.ph,
@@ -41,6 +45,7 @@ class OnBoardingScreen extends StatelessWidget {
             buttonText: 'Login as guest',
             onPressed: () {
               // navigate to home screen
+              context.pushNamed(Routes.home);
             },
           ),
           20.ph
