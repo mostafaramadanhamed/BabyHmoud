@@ -3,6 +3,7 @@ import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:babyhmoud/features/home/ui/widgets/auto_scroll_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/theme/text_styles.dart';
 import 'widgets/category_grid_view.dart';
 import 'widgets/custom_drawer.dart';
 
@@ -16,6 +17,7 @@ class HomeScreen extends StatelessWidget {
         drawer: const CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               10.ph,
               // location user
@@ -24,7 +26,8 @@ class HomeScreen extends StatelessWidget {
                   16.pw,
                   Column(
                     children: [
-                      const Text("Location", style: TextStyle(fontWeight: FontWeight.w300)),
+                      const Text("Location",
+                          style: TextStyle(fontWeight: FontWeight.w300)),
                       Row(
                         children: [
                           const Icon(
@@ -58,9 +61,8 @@ class HomeScreen extends StatelessWidget {
                     Expanded(
                       child: SearchBar(
                         hintText: "Search",
-                        leading: Icon(Icons.search, color: Colors.brown),
-                        backgroundColor:
-                            WidgetStateProperty.all(Colors.white),
+                        leading: const Icon(Icons.search, color: Colors.brown),
+                        backgroundColor: WidgetStateProperty.all(Colors.white),
                         elevation: WidgetStateProperty.all(0),
                         shape: WidgetStateProperty.all(
                           RoundedRectangleBorder(
@@ -87,7 +89,45 @@ class HomeScreen extends StatelessWidget {
 
               const AutoScrollBanner(),
               20.ph,
-              const CategoryGridView(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Text('Categories',
+                    style: TextStyles.font20SemiBold.copyWith(
+                      fontSize: 18.sp,
+                    )),
+              ),
+              16.ph,
+              const CategoryListView(),
+              20.ph,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Text('Most Sold', style: TextStyles.font20SemiBold),
+              ),
+              16.ph,
+              // most sold products
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 6,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 16.w),
+                      width: 140.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: AppColors.primaryGold,
+                        image: const DecorationImage(
+                          image:  AssetImage('assets/images/test.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              20.ph,
             ],
           ),
         ),

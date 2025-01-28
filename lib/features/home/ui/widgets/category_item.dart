@@ -1,4 +1,3 @@
-import 'package:babyhmoud/core/helper/spacing_extension.dart';
 import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:babyhmoud/features/home/ui/widgets/categories_data.dart';
 import 'package:flutter/material.dart';
@@ -14,44 +13,56 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-  onTap: () {
-    // Handle category item tap
-  },
-  child: Card(
-   color: Colors.white,
-    elevation: 4.0,
-    shadowColor: AppColors.primaryGold.withOpacity(0.8),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16.0.r), // Increased border radius for a modern look
-    ),
-    child: Column(
-    
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(16.0.r), // Rounded corners only at the top
+        onTap: () {
+          // Handle category item tap
+        },
+        child: Container(
+          constraints: BoxConstraints(
+            minHeight: 140.h,
           ),
-          child: Image.asset(
-            category.image,
+          alignment: Alignment.bottomCenter,
+          margin: EdgeInsets.symmetric(vertical: 8.h,horizontal: 8.w),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: AppColors.primaryGold,
+            image: DecorationImage(
+                image: AssetImage(category.image), fit: BoxFit.cover),
+            gradient: LinearGradient(
+              colors: [
+                AppColors.primaryGold.withOpacity(0.4),
+                AppColors.primaryGold.withOpacity(0.8),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Container(
+            height: 40,
             width: double.infinity,
-            height: 120.0, // Increased height for better visual focus
-            fit: BoxFit.cover,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.vertical(
+                bottom: Radius.circular(8.0),
+              ),
+              color: AppColors.pimaryBrown.withOpacity(0.8),
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.pimaryBrown.withOpacity(0.4),
+                  AppColors.pimaryBrown.withOpacity(0.8),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: Text(
+              category.name,
+              style: TextStyle(
+                color: AppColors.lighterBrown,
+                fontWeight: FontWeight.bold,
+                fontSize: 20.sp,
+              ),
+            ),
           ),
-        ),
-        12.ph,
-        Text(
-          category.name,
-          textAlign: TextAlign.center,
-          style:  TextStyle(
-            fontSize: 16.0.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-      ],
-    ),
-  ),
-)
-;
+        ));
   }
 }

@@ -3,23 +3,17 @@ import 'package:babyhmoud/features/home/ui/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CategoryGridView extends StatelessWidget {
-  const CategoryGridView({
+class CategoryListView extends StatelessWidget {
+  const CategoryListView({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
+    return ListView.builder(
       shrinkWrap: true,
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns
-          crossAxisSpacing: 16.0,
-          mainAxisSpacing: 16.0,
-          childAspectRatio:0.9,
-          ),
       itemCount: 6,
       itemBuilder: (BuildContext context, int index) {
         return CategoryItem(
