@@ -10,25 +10,31 @@ class AutoScrollBanner extends StatelessWidget {
 
   static final List<String> imgList = [
     'assets/images/BANNER.png',
+    'assets/images/BANNER.png',
+    'assets/images/BANNER.png',
     'assets/images/BANNER2.png',
     'assets/images/BANNER3.png',
   ];
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider(
-      options: CarouselOptions(
-        autoPlayInterval: const Duration(seconds: 6),
-        autoPlay: true,
-        aspectRatio: 4/2,
-        enlargeCenterPage: true,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: CarouselSlider(
+        options: CarouselOptions(
+          autoPlayInterval: const Duration(seconds: 6),
+          autoPlay: true,
+          aspectRatio: 4/2,
+          enlargeCenterPage: false,
+          viewportFraction: 1,
+        ),
+        items: imgList
+            .map((item) => Center(
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(item, fit: BoxFit.fill, width: double.infinity,height: 150.h,)),
+                ))
+            .toList(),
       ),
-      items: imgList
-          .map((item) => Center(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(item, fit: BoxFit.fill, width: double.infinity,height: 150.h,)),
-              ))
-          .toList(),
     );
   }
 }
