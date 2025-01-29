@@ -1,7 +1,10 @@
+import 'package:babyhmoud/core/helper/navigation_extension.dart';
 import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:babyhmoud/features/home/ui/widgets/categories_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class CategoryItem extends StatelessWidget {
   final CategoriesData category;
@@ -14,14 +17,14 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          // Handle category item tap
+          context.pushNamed(Routes.products);
         },
         child: Container(
           constraints: BoxConstraints(
             minHeight: 140.h,
           ),
           alignment: Alignment.bottomCenter,
-          margin: EdgeInsets.symmetric(vertical: 8.h,horizontal: 8.w),
+          margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             color: AppColors.primaryGold,
