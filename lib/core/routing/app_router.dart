@@ -7,6 +7,8 @@ import 'package:babyhmoud/features/products/ui/products_screen.dart';
 import 'package:babyhmoud/features/splash/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/products/ui/product_details_screen.dart';
+
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -24,6 +26,9 @@ class AppRouter {
       
       case Routes.products:
         return MaterialPageRoute(builder: (_) => const ProductsScreen());
+
+    case Routes.productDetails:
+        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
       default:
         return null;
     }

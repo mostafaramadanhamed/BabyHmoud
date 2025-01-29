@@ -7,5 +7,5 @@ class Routes {
   static const String forgotPassword = 'forgotPassword';
   static const String profile = 'profile';
   static const String products = 'products';
-  static const String productDetail = 'productDetail';
+  static const String productDetails = 'productDetails';
 }
