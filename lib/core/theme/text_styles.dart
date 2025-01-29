@@ -16,5 +16,17 @@ class TextStyles {
     fontSize: 14.sp,
     color: Colors.grey,
   );
+
+  // font 16 meduim
+  static TextStyle font16Medium = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.medium,
+  );
+
+  // font 14 semi bold
+  static TextStyle font14SemiBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.semiBold,
+  );
   
 }
