@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                         elevation: WidgetStateProperty.all(0),
                         shape: WidgetStateProperty.all(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(15),
                             side: BorderSide(color: Colors.grey.shade300),
                           ),
                         ),
