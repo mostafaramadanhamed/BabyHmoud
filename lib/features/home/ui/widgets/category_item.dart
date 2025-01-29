@@ -40,7 +40,7 @@ class CategoryItem extends StatelessWidget {
             ),
           ),
           child: Container(
-            height: 40,
+            height: 32.h,
             width: double.infinity,
             alignment: Alignment.center,
             decoration: BoxDecoration(

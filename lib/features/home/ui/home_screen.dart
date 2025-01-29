@@ -4,6 +4,7 @@ import 'package:babyhmoud/features/home/ui/widgets/auto_scroll_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/theme/text_styles.dart';
+import '../../products/ui/widgets/product_item.dart';
 import 'widgets/category_grid_view.dart';
 import 'widgets/custom_drawer.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              10.ph,
+              24.ph,
               // location user
               Row(
                 children: [
@@ -91,39 +92,26 @@ class HomeScreen extends StatelessWidget {
               20.ph,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: Text('Categories',
-                    style: TextStyles.font20SemiBold.copyWith(
-                      fontSize: 18.sp,
-                    )),
+                child: Text('Categories', style: TextStyles.font18SemiBold),
               ),
               16.ph,
               const CategoryListView(),
               20.ph,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: Text('Most Sold', style: TextStyles.font20SemiBold),
+                child: Text('Best Seller', style: TextStyles.font18SemiBold),
               ),
               16.ph,
               // most sold products
               SizedBox(
-                height: 200,
+                height: 200.h,
                 child: ListView.builder(
+                  shrinkWrap: true,
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   scrollDirection: Axis.horizontal,
                   itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: 16.w),
-                      width: 140.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: AppColors.primaryGold,
-                        image: const DecorationImage(
-                          image:  AssetImage('assets/images/test.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
+                    return const ProductItem();
                   },
                 ),
               ),

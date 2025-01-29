@@ -1,5 +1,6 @@
 import 'package:babyhmoud/core/routing/app_router.dart';
 import 'package:babyhmoud/core/routing/routes.dart';
+import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,6 +18,10 @@ class BabyHmoudApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: const Color(0xFFFFFEFD),
           primarySwatch: Colors.brown,
+          appBarTheme: const AppBarTheme(
+            backgroundColor:  AppColors.lighterBrown,
+            elevation: 0,
+          ),
         ),
         themeMode: ThemeMode.light,
         initialRoute: Routes.splash,

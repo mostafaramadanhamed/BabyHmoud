@@ -11,33 +11,7 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // add lunguage button
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          title: GestureDetector(
-            onTap: () {
-              // navigate to language screen
-            },
-            child: Row(
-            
-              children: [
-                12.pw,
-                const Icon(
-                  Icons.language_rounded,
-                  color: Colors.black,
-                ),
-                8.pw,
-                const Text(
-                  'EN',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+    
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 64.w),
           child: Column(
@@ -75,7 +49,31 @@ class OnBoardingScreen extends StatelessWidget {
                   context.pushNamed(Routes.home);
                 },
               ),
-              20.ph
+              40.ph,
+               GestureDetector(
+            onTap: () {
+              // navigate to language screen
+            },
+            child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                12.pw,
+                const Icon(
+                  Icons.language_rounded,
+                  color: Colors.black,
+                  size: 24,
+                ),
+                8.pw,
+                const Text(
+                  'عربي',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
             ],
           ),
         ));
