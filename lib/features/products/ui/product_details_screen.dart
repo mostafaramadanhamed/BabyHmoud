@@ -1,4 +1,5 @@
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
+import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:babyhmoud/features/products/ui/widgets/baby_customization.dart';
 import 'package:babyhmoud/features/products/ui/widgets/read_more.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -69,9 +70,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 children: [
                   const Text("Female’s Style",
                       style: TextStyle(color: Colors.grey)),
-                  const SizedBox(height: 5),
-
-                  const SizedBox(height: 5),
+                  10.ph,
                   Row(
                     children: [
                       const Text("Light Brown Jacket",
@@ -102,9 +101,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   10.ph,
 
                   // Size Selection
-                   Text("Select Size",
-                      style:
-                          TextStyles.font17Black),
+                  Text("Select Size", style: TextStyles.font17Black),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,10 +112,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         selectedColor: AppColors.lighterBrown,
                         backgroundColor: AppColors.pimaryBrown,
                         labelStyle: selectedSize == size
-                            ?  TextStyles.font14SemiBold
-                            :TextStyles.font12Regular.copyWith(
-                              color: Colors.white,
-                            ),
+                            ? TextStyles.font14SemiBold
+                            : TextStyles.font12Regular.copyWith(
+                                color: Colors.white,
+                              ),
                         selected: selectedSize == size,
                         onSelected: (bool selected) {
                           setState(() {
@@ -132,7 +129,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
                   // Color Selection
                   RichText(
-                    text:  TextSpan(
+                    text: TextSpan(
                       text: 'Select Color: ',
                       style: TextStyles.font17Black,
                       children: [
@@ -143,7 +140,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       ],
                     ),
                   ),
-                5.ph,
+                  5.ph,
                   Row(
                     children: [
                       Colors.pink,
@@ -173,41 +170,80 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     }).toList(),
                   ),
                   20.ph,
-                  BabyNameCustomizerScreen()
+                  BabyNameCustomizerScreen(),
+                  20.ph,
+                  Row(
+                    children: [
+                      Text(
+                        " OR Upload your personalized design",
+                        style: TextStyles.font17Black,
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.photo_camera_back_rounded,
+                          color: AppColors.darkBrown,
+                          size: 30,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  Divider(color: Colors.grey.shade300),
+                  20.ph,
+                  // massege on gift card
+                  Text(
+                    "Message on Gift card",
+                   
+                    style: TextStyles.font17Black,
+                  ),
+                  8.ph,
+                 AppTextFormField(hintText: 'Write your message here...', maxLines: 4,),
                 ],
               ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-          boxShadow: [
-            BoxShadow(color: Colors.black12, blurRadius: 10, spreadRadius: 2),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text("Total Price\n \$83.97",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.darkBrown,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
+      bottomNavigationBar: const Price(),
+    );
+  }
+}
+
+class Price extends StatelessWidget {
+  const Price({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 10, spreadRadius: 2),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text("Total Price\n \$83.97",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.darkBrown,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
-              onPressed: () {},
-              icon: const Icon(Icons.add_shopping_cart),
-              label: const Text("Add to Cart"),
             ),
-          ],
-        ),
+            onPressed: () {},
+            icon: const Icon(Icons.add_shopping_cart),
+            label: const Text("Add to Cart"),
+          ),
+        ],
       ),
     );
   }

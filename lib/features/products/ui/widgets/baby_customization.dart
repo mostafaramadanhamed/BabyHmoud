@@ -1,8 +1,9 @@
-import 'package:babyhmoud/baby_hmoud.dart';
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
 import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/theme/text_styles.dart';
 
 class BabyNameCustomizerScreen extends StatefulWidget {
   const BabyNameCustomizerScreen({super.key});
@@ -51,10 +52,10 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(
+             Center(
               child: Text(
-                "🌸 Personalize your baby's name 🌸",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                "Personalize your baby's name",
+                style: TextStyles.font18SemiBold,
               ),
             ),
             20.ph,
