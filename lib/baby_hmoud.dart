@@ -18,8 +18,15 @@ class BabyHmoudApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: const Color(0xFFFFFEFD),
           primarySwatch: Colors.brown,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.darkBrown,
+              foregroundColor: Colors.white,
+              elevation: 0,
+            ),
+          ),
           appBarTheme: const AppBarTheme(
-            backgroundColor:  AppColors.buttonBrown,
+            backgroundColor: AppColors.buttonBrown,
             foregroundColor: Colors.white,
             elevation: 0,
           ),

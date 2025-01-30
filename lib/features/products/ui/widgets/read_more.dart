@@ -1,4 +1,4 @@
-import 'package:babyhmoud/core/theme/app_colors.dart';
+import 'package:babyhmoud/core/theme/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ReadMoreText extends StatefulWidget {
@@ -35,10 +35,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
             },
             child: Text(
               _isExpanded ? 'Show less' : 'Read more',
-              style: const TextStyle(
-                color: AppColors.darkBrown,
-                decoration: TextDecoration.underline,
-              ),
+              style:  TextStyles.font15DarkBrown,
             ),
           ),
       ],

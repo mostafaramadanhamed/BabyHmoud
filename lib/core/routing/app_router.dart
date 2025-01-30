@@ -28,7 +28,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProductsScreen());
 
     case Routes.productDetails:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
+        return MaterialPageRoute(builder: (_) =>  ProductDetailsScreen());
       default:
         return null;
     }
