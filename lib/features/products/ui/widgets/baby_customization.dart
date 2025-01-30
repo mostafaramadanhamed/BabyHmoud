@@ -1,9 +1,14 @@
+import 'package:babyhmoud/baby_hmoud.dart';
+import 'package:babyhmoud/core/helper/spacing_extension.dart';
+import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BabyNameCustomizerScreen extends StatefulWidget {
   const BabyNameCustomizerScreen({super.key});
   @override
-  _BabyNameCustomizerScreenState createState() => _BabyNameCustomizerScreenState();
+  _BabyNameCustomizerScreenState createState() =>
+      _BabyNameCustomizerScreenState();
 }
 
 class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
@@ -30,30 +35,42 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        side: BorderSide(
+          color: Colors.grey.shade300,)
+      ),
+    
+      color: Colors.white,
+      elevation: 4.0,
+      shadowColor: Colors.grey.shade300,
+       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Center(
               child: Text(
-                "✨🌸 Personalize your baby's name 🌸✨",
+                "🌸 Personalize your baby's name 🌸",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
-            const SizedBox(height: 20),
+            20.ph,
             const Text("Baby Name:"),
-            TextField(
-              controller: _babyNameController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Enter baby's name",
-              ),
-            ),
-            const SizedBox(height: 20),
+            4.ph,
+           SizedBox(
+            height: 58.h,
+            child: const AppTextFormField(hintText: 'Enter Baby Name',)),
+           16.ph,
             const Text("Select The Font"),
+            4.ph,
             DropdownButtonFormField<String>(
-              decoration: const InputDecoration(border: OutlineInputBorder()),
+              decoration: const InputDecoration(border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(32)),
+
+              )),
               value: _selectedFont,
               hint: const Text("Please Select The Font"),
               items: fonts.map((font) {
@@ -68,8 +85,9 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                 });
               },
             ),
-            const SizedBox(height: 20),
+            16.ph,
             const Text("Select Sticker Color"),
+            4.ph,
             Wrap(
               spacing: 10,
               children: colors.map((color) {
@@ -96,7 +114,7 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                 );
               }).toList(),
             ),
-            const SizedBox(height: 20),
+           20.ph,
             GestureDetector(
               onTap: () {
                 setState(() {
@@ -114,19 +132,19 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
             ),
             if (_showExtraNameField)
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  TextField(
-                    controller: _extraNameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: "Enter extra name",
-                    ),
-                  ),
-                  const SizedBox(height: 20),
+                SizedBox(
+                  height: 58.h,
+                  child: const AppTextFormField(hintText: 'Enter Extra Name')),
+                  16.ph,
                   const Text("Select Extra Name Font"),
+                  4.ph,
                   DropdownButtonFormField<String>(
-                    decoration: const InputDecoration(border: OutlineInputBorder()),
+                    decoration:
+                        const InputDecoration(border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(32)),
+                        )),
                     value: _selectedExtraFont,
                     hint: const Text("Please Select The Font"),
                     items: fonts.map((font) {
@@ -141,8 +159,9 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                       });
                     },
                   ),
-                  const SizedBox(height: 20),
+                  16.ph,
                   const Text("Select Extra Name Sticker Color"),
+                  4.ph,
                   Wrap(
                     spacing: 10,
                     children: colors.map((color) {
@@ -173,7 +192,7 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
               ),
           ],
         ),
-     
+      ),
     );
   }
 }
