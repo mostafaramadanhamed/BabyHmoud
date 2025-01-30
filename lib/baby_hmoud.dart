@@ -19,7 +19,8 @@ class BabyHmoudApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xFFFFFEFD),
           primarySwatch: Colors.brown,
           appBarTheme: const AppBarTheme(
-            backgroundColor:  AppColors.lighterBrown,
+            backgroundColor:  AppColors.buttonBrown,
+            foregroundColor: Colors.white,
             elevation: 0,
           ),
         ),
