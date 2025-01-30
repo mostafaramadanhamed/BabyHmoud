@@ -63,7 +63,7 @@ class AppTextFormField extends StatelessWidget {
                 color: Colors.grey,
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(32.0.r),
+              borderRadius: BorderRadius.circular(15.0.r),
             ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
@@ -71,21 +71,21 @@ class AppTextFormField extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.4),
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(32.r),
+              borderRadius: BorderRadius.circular(15.r),
             ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1.3,
           ),
-          borderRadius: BorderRadius.circular(32.0.r),
+          borderRadius: BorderRadius.circular(15.0.r),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1.3,
           ),
-          borderRadius: BorderRadius.circular(32.0.r),
+          borderRadius: BorderRadius.circular(15.0.r),
         ),
         //  hintStyle: hintStyle ?? TextStyles.font15Regular,
         hintText: hintText,

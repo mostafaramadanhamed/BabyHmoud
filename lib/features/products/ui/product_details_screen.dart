@@ -26,7 +26,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   String selectedSize = '0-3 Months';
   Color selectedColor = Colors.brown;
+// Define the methods
+void _uploadDesign() {
+  // Implement file picker or image picker logic
+  print("Upload Design Clicked");
+}
 
+void _createNewDesign() {
+  // Implement new design creation logic
+  print("Create New Design Clicked");
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,7 +119,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       return ChoiceChip(
                         label: Text(size),
                         selectedColor: AppColors.lighterBrown,
-                        backgroundColor: AppColors.pimaryBrown,
+                        backgroundColor: AppColors.darkBrown,
                         labelStyle: selectedSize == size
                             ? TextStyles.font14SemiBold
                             : TextStyles.font12Regular.copyWith(
@@ -170,35 +179,74 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     }).toList(),
                   ),
                   20.ph,
-                  BabyNameCustomizerScreen(),
-                  20.ph,
-                  Row(
-                    children: [
-                      Text(
-                        " OR Upload your personalized design",
-                        style: TextStyles.font17Black,
-                      ),
-                      const Spacer(),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.photo_camera_back_rounded,
-                          color: AppColors.darkBrown,
-                          size: 30,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  Divider(color: Colors.grey.shade300),
+            IconButton(
+  icon: Text("Choose Your Design"),
+  onPressed: () {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Choose an option",
+                style: TextStyles.font17Black,
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                leading: const Icon(Icons.upload_file, color: AppColors.darkBrown),
+                title: const Text("Upload Design"),
+                onTap: () {
+                  // Handle Upload Design
+                  Navigator.pop(context);
+                  _uploadDesign();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.draw, color: AppColors.darkBrown),
+                title: const Text("Create a New Design"),
+                onTap: () {
+                  // Handle New Design Creation
+                  Navigator.pop(context);
+                  _createNewDesign();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  },
+),
+
+
+   Divider(color: Colors.grey.shade300),
                   20.ph,
                   // massege on gift card
                   Text(
                     "Message on Gift card",
-                   
                     style: TextStyles.font17Black,
                   ),
                   8.ph,
-                 AppTextFormField(hintText: 'Write your message here...', maxLines: 4,),
+                  const AppTextFormField(
+                    hintText: 'Write your message here...',
+                    maxLines: 4,
+                  ),
+                  10.ph,
+                  Divider(color: Colors.grey.shade300),
+                  20.ph,
+                  // list view of extra services
+                  Text("Extra Services", style: TextStyles.font17Black),
+                  10.ph,
+                  const ExtraServicesList(),
+                  20.ph,
+                  const Divider(color: Colors.grey),
+                  20.ph,
                 ],
               ),
             ),
@@ -206,6 +254,26 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         ),
       ),
       bottomNavigationBar: const Price(),
+    );
+  }
+}
+
+class ExtraServicesList extends StatelessWidget {
+  const ExtraServicesList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return ProductTile();
+      },
+      scrollDirection: Axis.vertical,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      itemExtent: 50,
+      addAutomaticKeepAlives: true,
     );
   }
 }
@@ -244,6 +312,54 @@ class Price extends StatelessWidget {
             label: const Text("Add to Cart"),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ProductTile extends StatefulWidget {
+  const ProductTile({super.key});
+
+  @override
+  _ProductTileState createState() => _ProductTileState();
+}
+
+class _ProductTileState extends State<ProductTile> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        child: ListTile(
+         minTileHeight: 150,
+          leading: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Image.asset(
+              'assets/images/test.jpg', // Ensure this image is in your assets folder
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+          ),
+          title: const Text(
+            'Teddy bear',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          subtitle: const Text('3.15KD'),
+          trailing: Checkbox(
+            value: isChecked,
+            onChanged: (bool? value) {
+              setState(() {
+                isChecked = value!;
+              });
+            },
+          ),
+        ),
       ),
     );
   }
