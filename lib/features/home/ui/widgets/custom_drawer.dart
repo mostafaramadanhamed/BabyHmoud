@@ -1,4 +1,7 @@
+import 'package:babyhmoud/core/helper/navigation_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -71,10 +74,9 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.info),
-            title: const Text("About"),
+            title: const Text("Wish List"),
             onTap: () {
-              Navigator.of(context).pop(); // Close the drawer
-              // Add your navigation logic here
+              context.pushNamed(Routes.wishList);
             },
           ),
     

@@ -4,6 +4,7 @@ import 'package:babyhmoud/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/text_styles.dart';
 
 class ProductItem extends StatelessWidget {
@@ -60,10 +61,12 @@ class ProductItem extends StatelessWidget {
                       Text('4.5', style: TextStyles.font14RegularGrey),
                     ],
                   ),
-                  4.ph,
+                  2.ph,
                   Text(
                     '\$100.00',
-                    style: TextStyles.font14SemiBold,
+                    style: TextStyles.font14SemiBold.copyWith(
+                      color: AppColors.darkBrown,
+                    ),
                   ),
                 ],
               ),

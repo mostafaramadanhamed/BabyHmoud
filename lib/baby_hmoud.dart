@@ -26,7 +26,7 @@ class BabyHmoudApp extends StatelessWidget {
             ),
           ),
           appBarTheme: const AppBarTheme(
-            backgroundColor: AppColors.buttonBrown,
+            backgroundColor: AppColors.darkBrown,
             foregroundColor: Colors.white,
             elevation: 0,
           ),

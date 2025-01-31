@@ -379,7 +379,9 @@ class Price extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.cart);
+            },
             icon: const Icon(Icons.add_shopping_cart),
             label: const Text("Add to Cart"),
           ),
