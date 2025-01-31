@@ -5,6 +5,7 @@ import 'package:babyhmoud/features/products/ui/widgets/read_more.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
@@ -26,16 +27,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   String selectedSize = '0-3 Months';
   Color selectedColor = Colors.brown;
-// Define the methods
-void _uploadDesign() {
-  // Implement file picker or image picker logic
-  print("Upload Design Clicked");
-}
 
-void _createNewDesign() {
-  // Implement new design creation logic
-  print("Create New Design Clicked");
-}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,53 +171,26 @@ void _createNewDesign() {
                     }).toList(),
                   ),
                   20.ph,
-            IconButton(
-  icon: Text("Choose Your Design"),
-  onPressed: () {
-    showModalBottomSheet(
-      context: context,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (BuildContext context) {
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "Choose an option",
-                style: TextStyles.font17Black,
-              ),
-              const SizedBox(height: 10),
-              ListTile(
-                leading: const Icon(Icons.upload_file, color: AppColors.darkBrown),
-                title: const Text("Upload Design"),
-                onTap: () {
-                  // Handle Upload Design
-                  Navigator.pop(context);
-                  _uploadDesign();
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.draw, color: AppColors.darkBrown),
-                title: const Text("Create a New Design"),
-                onTap: () {
-                  // Handle New Design Creation
-                  Navigator.pop(context);
-                  _createNewDesign();
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  },
-),
-
-
-   Divider(color: Colors.grey.shade300),
+                  const BabyNameCustomizerScreen(),
+                  20.ph,
+                  Row(
+                    children: [
+                      Text(
+                        "Upload your personalized design",
+                        style: TextStyles.font17Black,
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.add_photo_alternate_outlined,
+                          color: AppColors.darkBrown,
+                          size: 30,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  Divider(color: Colors.grey.shade300),
                   20.ph,
                   // massege on gift card
                   Text(
@@ -241,12 +206,13 @@ void _createNewDesign() {
                   Divider(color: Colors.grey.shade300),
                   20.ph,
                   // list view of extra services
-                  Text("Extra Services", style: TextStyles.font17Black),
+                  Text("Add ons", style: TextStyles.font17Black),
                   10.ph,
                   const ExtraServicesList(),
                   20.ph,
                   const Divider(color: Colors.grey),
                   20.ph,
+                  // add ons
                 ],
               ),
             ),
@@ -268,12 +234,10 @@ class ExtraServicesList extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: 10,
       itemBuilder: (context, index) {
-        return ProductTile();
+        return const ProductTile();
       },
       scrollDirection: Axis.vertical,
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      itemExtent: 50,
-      addAutomaticKeepAlives: true,
     );
   }
 }
@@ -329,37 +293,34 @@ class _ProductTileState extends State<ProductTile> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        child: ListTile(
-         minTileHeight: 150,
-          leading: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset(
-              'assets/images/test.jpg', // Ensure this image is in your assets folder
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
-            ),
+    return Card(
+      color: Colors.white,
+      child: Row(
+        children: [
+          Image.asset('assets/images/test.jpg', width: 100, height: 100),
+          12.pw,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Product Name',
+              ),
+              8.ph,
+              const Text(
+                'Price',
+              ),
+            ],
           ),
-          title: const Text(
-            'Teddy bear',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          subtitle: const Text('3.15KD'),
-          trailing: Checkbox(
+          const Spacer(),
+          Checkbox(
             value: isChecked,
-            onChanged: (bool? value) {
+            onChanged: (value) {
               setState(() {
                 isChecked = value!;
               });
             },
           ),
-        ),
+        ],
       ),
     );
   }

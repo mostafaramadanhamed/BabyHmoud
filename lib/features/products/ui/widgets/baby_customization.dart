@@ -1,4 +1,5 @@
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
+import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,7 +55,7 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                 style: TextStyles.font17Black,
               ), 
               Spacer(),
-                 Icon(_showCard ? Icons.arrow_drop_up : Icons.arrow_drop_down,),
+                 Icon(_showCard ? Icons.arrow_drop_up : Icons.arrow_drop_down,size: 30,color: AppColors.darkBrown,),
             ],
           ),
         ),
