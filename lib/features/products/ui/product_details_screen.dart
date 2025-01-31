@@ -1,10 +1,13 @@
+import 'package:babyhmoud/core/helper/navigation_extension.dart';
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
+import 'package:babyhmoud/core/routing/routes.dart';
 import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:babyhmoud/features/products/ui/widgets/baby_customization.dart';
 import 'package:babyhmoud/features/products/ui/widgets/read_more.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
 
@@ -262,7 +265,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                         RadioListTile<DesignChoice>(
                           title: Text(
-                            "Upload your personalized design",
+                            "Upload your name design",
                             style: TextStyles.font17Black,
                           ),
                           activeColor: AppColors.darkBrown,
@@ -280,7 +283,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           Row(
                             children: [
                               Text(
-                                "Upload your personalized design",
+                                "Upload your name design",
                                 style: TextStyles.font17Black,
                               ),
                               const Spacer(),
@@ -431,22 +434,38 @@ class _ProductTileState extends State<ProductTile> {
               ),
               if (isChecked)
                 Container(
-                  height: 40,
+                  height: 35.h,
+                  width: 75.w,
+                  margin: const EdgeInsetsDirectional.only(end: 8),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     border: Border.all(color: AppColors.darkBrown),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
+                    
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.remove),
-                        onPressed: () {},
+                      GestureDetector(
+                        onTap: () {
+                          context.pushNamed(Routes.wishList);
+                        },
+                        child: const Icon(
+                            Icons.remove,
+                            size: 18,
+                          ),
                       ),
-                      const Text("1"),
-                      IconButton(
-                        icon: const Icon(Icons.add),
-                        onPressed: () {},
+                      const Text(
+                        "1",
+                        style: TextStyle(fontSize: 14),
+                      ),GestureDetector(
+                        onTap: () {
+                          
+                        },
+                        child: const Icon(
+                            Icons.add,
+                            size: 18,
+                          ),
                       ),
                     ],
                   ),

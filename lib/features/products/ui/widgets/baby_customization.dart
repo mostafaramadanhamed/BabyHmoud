@@ -21,7 +21,6 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
   String? _selectedColor;
   String? _selectedExtraColor;
   bool _showExtraNameField = false;
-  bool _showCard = false;
 
   final List<String> fonts = ['Font 1', 'Font 2', 'Font 3'];
   final List<Color> colors = [
