@@ -40,26 +40,7 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _showCard = !_showCard;
-            });
-          },
-          child: Row(
-         
-            children: [
-          
-              Text(
-                "Personalize your baby's name",
-                style: TextStyles.font17Black,
-              ), 
-              Spacer(),
-                 Icon(_showCard ? Icons.arrow_drop_up : Icons.arrow_drop_down,size: 30,color: AppColors.darkBrown,),
-            ],
-          ),
-        ),
-        if (_showCard)
+     
           Card(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),

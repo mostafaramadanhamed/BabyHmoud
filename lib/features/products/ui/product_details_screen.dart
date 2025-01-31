@@ -8,6 +8,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
 
+enum DesignChoice { personalize, upload }
+
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key});
 
@@ -18,14 +20,14 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   int _currentIndex = 0;
   List<String> imageUrls = [
-    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://babyhumod.com/cdn/shop/files/newborn-clothes-luxury-newborn-customized-set-baby-clothes-with-personalized-embroider-baby-name-embroidery-soft-baby-blanket-embroidered-baby-bag-elegant-welcome-set-baby-gift-design-baby-set-printing-custom-newborn-set-design-48302165393683.jpg?v=1735667470&width=493',
     'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
   ];
 
   String selectedSize = '0-3 Months';
   Color selectedColor = Colors.brown;
-
+  DesignChoice? _choice = DesignChoice.personalize;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,12 +45,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     items: imageUrls.map((url) {
                       return Image.network(
                         url,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                         width: double.infinity,
                       );
                     }).toList(),
                     options: CarouselOptions(
-                      aspectRatio: 16 / 9,
+                      aspectRatio: 16 / 14,
                       enlargeCenterPage: false,
                       viewportFraction: 1,
                       onPageChanged: (index, reason) {
@@ -67,7 +69,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             backgroundColor: Colors.white,
                             child: const Icon(
                               Icons.arrow_back,
-                              color: Colors.black,
+                              color: AppColors.darkBrown,
                             ),
                           ),
                           onPressed: () {
@@ -80,7 +82,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             backgroundColor: Colors.white,
                             child: const Icon(
                               Icons.favorite_border,
-                              color: Colors.black,
+                              color: AppColors.darkBrown,
                             ),
                           ),
                           onPressed: () {},
@@ -135,10 +137,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           itemSize: 20,
                         ),
                         const SizedBox(width: 10),
-                        const Text("4.5", style: TextStyle(fontSize: 16)),
+                        const Text("4.5",
+                            style: TextStyle(fontSize: 16, color: Colors.grey)),
                       ],
                     ),
-                    10.ph,
+                    // 10.ph,
                     Row(
                       children: [
                         const Text("Light Brown Jacket",
@@ -146,7 +149,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 fontSize: 22, fontWeight: FontWeight.bold)),
                         const Spacer(),
                         // price
-                        Text('\$83.97', style: TextStyles.font17Black),
+                        Text('\$83.97',
+                            style: TextStyles.font17Black.copyWith(
+                              color: AppColors.darkBrown,
+                            )),
                       ],
                     ),
                     10.ph,
@@ -189,7 +195,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     // Color Selection
                     RichText(
                       text: TextSpan(
-                        text: 'Select Color: ',
+                        text: 'Select Set Color: ',
                         style: TextStyles.font17Black,
                         children: [
                           TextSpan(
@@ -229,30 +235,69 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       }).toList(),
                     ),
                     20.ph,
-                    const BabyNameCustomizerScreen(),
-                    20.ph,
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Upload your personalized design",
-                          style: TextStyles.font17Black,
+                        Row(
+                          children: [
+                            Expanded(
+                                child: Divider(color: Colors.grey.shade300)),
+                            Text("The Design", style: TextStyles.font17Black),
+                            Expanded(
+                                child: Divider(color: Colors.grey.shade300)),
+                          ],
                         ),
-                        const Spacer(),
-                        IconButton(
-                          icon: const Icon(
-                            Icons.add_photo_alternate_outlined,
-                            color: AppColors.darkBrown,
-                            size: 30,
+                        10.ph,
+                        RadioListTile<DesignChoice>(
+                          title: Text("Personalize your Baby's Name",
+                              style: TextStyles.font17Black),
+                          value: DesignChoice.personalize,
+                          activeColor: AppColors.darkBrown,
+                          groupValue: _choice,
+                          onChanged: (DesignChoice? value) {
+                            setState(() {
+                              _choice = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<DesignChoice>(
+                          title: Text(
+                            "Upload your personalized design",
+                            style: TextStyles.font17Black,
                           ),
-                          onPressed: () {},
+                          activeColor: AppColors.darkBrown,
+                          value: DesignChoice.upload,
+                          groupValue: _choice,
+                          onChanged: (DesignChoice? value) {
+                            setState(() {
+                              _choice = value;
+                            });
+                          },
                         ),
+                        if (_choice == DesignChoice.personalize)
+                          const BabyNameCustomizerScreen(),
+                        if (_choice == DesignChoice.upload)
+                          Row(
+                            children: [
+                              Text(
+                                "Upload your personalized design",
+                                style: TextStyles.font17Black,
+                              ),
+                              const Spacer(),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.add_photo_alternate_outlined,
+                                  color: AppColors.darkBrown,
+                                  size: 30,
+                                ),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
                       ],
                     ),
                     Divider(color: Colors.grey.shade300),
-                    20.ph,
-                    // massege on gift card
-
-                    20.ph,
+                    10.ph,
                     // list view of extra services
                     Text("Add ons", style: TextStyles.font17Black),
                     10.ph,
@@ -385,18 +430,26 @@ class _ProductTileState extends State<ProductTile> {
                 },
               ),
               if (isChecked)
-                Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.remove),
-                      onPressed: () {},
-                    ),
-                    const Text("1"),
-                    IconButton(
-                      icon: const Icon(Icons.add),
-                      onPressed: () {},
-                    ),
-                  ],
+                Container(
+                  height: 40,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.darkBrown),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.remove),
+                        onPressed: () {},
+                      ),
+                      const Text("1"),
+                      IconButton(
+                        icon: const Icon(Icons.add),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ),
             ],
           ),
