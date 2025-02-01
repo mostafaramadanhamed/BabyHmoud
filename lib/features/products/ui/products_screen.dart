@@ -1,6 +1,7 @@
-
+import 'package:babyhmoud/core/helper/spacing_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/theme/app_colors.dart';
 import 'widgets/product_grid_view.dart';
 
 class ProductsScreen extends StatelessWidget {
@@ -13,7 +14,53 @@ class ProductsScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text("Printing Sets"),
       ),
-      body: const ProductGridView(),
+      body: Column(
+        children: [
+          16.ph,
+          // filter section
+          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.darkBrown,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: () {},
+              icon: const Icon(Icons.filter_alt),
+              label: const Text("Filter"),
+            ),
+            10.pw,
+            // sort section
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.darkBrown,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: () {},
+              icon: const Icon(Icons.sort),
+              label: const Text("Sort"),
+            ),
+            10.pw,
+            // search section
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.darkBrown,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: () {},
+              icon: const Icon(Icons.search),
+              label: const Text("Search"),
+            ),
+            16.pw
+          ]),
+          const Expanded(child: ProductGridView()),
+        ],
+      ),
     );
   }
 }
