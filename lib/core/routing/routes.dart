@@ -10,4 +10,5 @@ class Routes {
   static const String productDetails = 'productDetails';
   static const String cart = 'cart';
   static const String wishList = 'wishList';
+  static const String main = 'main';
 }

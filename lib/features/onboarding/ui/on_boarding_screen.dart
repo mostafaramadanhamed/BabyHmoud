@@ -46,7 +46,7 @@ class OnBoardingScreen extends StatelessWidget {
             buttonText: 'Login as guest',
             onPressed: () {
               // navigate to home screen
-              context.pushNamed(Routes.home);
+              context.pushNamed(Routes.main);
             },
           ),
           40.ph,

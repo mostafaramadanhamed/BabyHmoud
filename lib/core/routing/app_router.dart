@@ -3,6 +3,7 @@ import 'package:babyhmoud/features/auth/ui/login/login_screen.dart';
 import 'package:babyhmoud/features/auth/ui/register/sign_up_screen.dart';
 import 'package:babyhmoud/features/cart/ui/cart_screen.dart';
 import 'package:babyhmoud/features/home/ui/home_screen.dart';
+import 'package:babyhmoud/features/home/ui/main_screen.dart';
 import 'package:babyhmoud/features/onboarding/ui/on_boarding_screen.dart';
 import 'package:babyhmoud/features/products/ui/products_screen.dart';
 import 'package:babyhmoud/features/splash/ui/splash_screen.dart';
@@ -37,6 +38,9 @@ class AppRouter {
 
     case Routes.cart:
         return MaterialPageRoute(builder: (_) =>  CartScreen());
+    
+    case Routes.main:
+        return MaterialPageRoute(builder: (_) => MainScreen());
       default:
         return null;
     }
