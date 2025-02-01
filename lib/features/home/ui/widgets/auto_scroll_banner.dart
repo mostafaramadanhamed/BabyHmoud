@@ -43,7 +43,7 @@ class _AutoScrollBannerState extends State<AutoScrollBanner> {
                 .map((item) => Center(
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
-                          child: Image.asset(item, fit: BoxFit.fill, width: double.infinity,height: 150.h,)),
+                          child: Image.asset(item, fit: BoxFit.fill, width: double.infinity,height: 165.h,)),
                     ))
                 .toList(),
           ),

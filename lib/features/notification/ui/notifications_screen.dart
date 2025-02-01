@@ -8,12 +8,9 @@ class NotificationsScreen extends StatelessWidget {
     return  Scaffold(
         appBar: AppBar(
           title: const Text('Notification', style: TextStyle(color: Colors.black)),
-          backgroundColor: Colors.white,
+          centerTitle: true,
           elevation: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () {},
-          ),
+       
           actions: [
             Container(
               margin: const EdgeInsets.only(right: 16, top: 12),
