@@ -47,10 +47,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   // notification
-                  const CircleAvatar(
-                      backgroundColor: AppColors.lighterBrown,
-                      child: Icon(Icons.notifications,
-                          color: AppColors.darkBrown)),
+                  GestureDetector(
+                    onTap: () {
+                      ///TODO navigate to notification
+                    },
+                    child: const CircleAvatar(
+                        backgroundColor: AppColors.lighterBrown,
+                        child: Icon(Icons.notifications,
+                            color: AppColors.darkBrown)),
+                  ),
                   16.pw,
                 ],
               ),
