@@ -139,7 +139,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           itemCount: 1,
                           itemSize: 20,
                         ),
-                        const SizedBox(width: 10),
+                        4.pw,
                         const Text("4.5",
                             style: TextStyle(fontSize: 16, color: Colors.grey)),
                       ],
@@ -193,7 +193,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         );
                       }).toList(),
                     ),
-                    10.ph,
+                    20.ph,
 
                     // Color Selection
                     RichText(
@@ -224,13 +224,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
-                            width: 30,
-                            height: 30,
+                            width: 25,
+                            height: 25,
                             decoration: BoxDecoration(
                               color: color,
                               shape: BoxShape.circle,
                               border: selectedColor == color
-                                  ? Border.all(width: 3, color: Colors.black)
+                                  ? Border.all(width: 3, color:AppColors.darkBrown)
                                   : null,
                             ),
                           ),
@@ -265,7 +265,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                         RadioListTile<DesignChoice>(
                           title: Text(
-                            "Upload your name design",
+                            "Upload your Name design",
                             style: TextStyles.font17Black,
                           ),
                           activeColor: AppColors.darkBrown,
@@ -309,13 +309,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     const Divider(color: Colors.grey),
                     20.ph,
                     Text(
-                      "Message on Gift card",
+                      "Message on Gift Card:",
                       style: TextStyles.font17Black,
                     ),
                     8.ph,
                     const AppTextFormField(
                       hintText: 'Write your message here...',
-                      maxLines: 4,
+                      maxLines: 2,
                     ),
                     10.ph,
                     Divider(color: Colors.grey.shade300),

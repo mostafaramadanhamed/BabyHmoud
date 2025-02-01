@@ -1,3 +1,4 @@
+import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsScreen extends StatelessWidget {
@@ -7,7 +8,7 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          title: const Text('Notification', style: TextStyle(color: Colors.black)),
+          title: const Text('Notification', style: TextStyle(color: Colors.white)),
           centerTitle: true,
           elevation: 0,
        
@@ -16,10 +17,10 @@ class NotificationsScreen extends StatelessWidget {
               margin: const EdgeInsets.only(right: 16, top: 12),
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: Colors.brown,
+                color: AppColors.lighterBrown,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Text('2 NEW', style: TextStyle(color: Colors.white)),
+              child: const Text('2 NEW', style: TextStyle(color:AppColors.darkBrown)),
             )
           ],
         ),

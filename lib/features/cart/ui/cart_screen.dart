@@ -1,4 +1,5 @@
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
+import 'package:babyhmoud/core/theme/text_styles.dart';
 import 'package:babyhmoud/core/widgets/app_text_button.dart';
 import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class CartScreen extends StatelessWidget {
                       'https://babyhumod.com/cdn/shop/files/newborn-clothes-luxury-newborn-customized-set-baby-clothes-with-personalized-embroider-baby-name-embroidery-soft-baby-blanket-embroidered-baby-bag-elegant-welcome-set-baby-gift-design-baby-set-printing-custom-newborn-set-design-48302165393683.jpg?v=1735667470&width=493',
                   title: "T-Shirt",
                   size: "L",
+                  color: "Blue",
                   babyName: "John",
                   babyNameColor: "Red",
                   babyNameFont: "Arial",
@@ -51,6 +53,7 @@ class CartScreen extends StatelessWidget {
     required String imageUrl,
     required String title,
     required String size,
+    required String color,
     required String babyName,
     required String babyNameColor,
     required String babyNameFont,
@@ -60,6 +63,7 @@ class CartScreen extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Dismissible(
+      
         key: UniqueKey(),
         child: ListTile(
           tileColor: Colors.white,
@@ -70,6 +74,8 @@ class CartScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Size: $size"),
+              5.ph,
+              Text("Set Color: $color"),
               5.ph,
               Text("\$${price.toStringAsFixed(2)}",
                   style: const TextStyle(
@@ -99,9 +105,9 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              5.pw,
-              const Text("2"),
-              5.pw,
+              8.pw,
+               Text("2",style: TextStyles.font15DarkBrown,),
+              8.pw,
               GestureDetector(
                 onTap: () {},
                 child: Container(
@@ -141,6 +147,7 @@ class CartScreen extends StatelessWidget {
             height: 55.h,
             child: AppTextFormField(
               hintText: 'Promo Code',
+              hintStyle: TextStyles.font14RegularGrey,
               suffixIcon: Padding(
                 padding: EdgeInsetsDirectional.only(
                   end: 8.w,

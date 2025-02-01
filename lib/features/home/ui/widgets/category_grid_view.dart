@@ -12,7 +12,7 @@ class CategoryListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
       physics: const NeverScrollableScrollPhysics(),
       itemCount: 6,
       itemBuilder: (BuildContext context, int index) {

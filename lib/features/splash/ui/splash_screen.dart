@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2300),
+      duration: const Duration(milliseconds: 2000),
       vsync: this,
     );
 
@@ -43,58 +43,46 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryGold, // الخلفية الذهبية
-      body: Stack(
-        children: [
-          // شعارات صغيرة على الخلفية
-          Image.asset(
-            width: double.infinity,
-            height: double.infinity,  
-            'assets/images/oback.png', // صورة مكررة للشعارات
-            fit: BoxFit.cover,
-          ),
-          // المحتوى الرئيسي
-          AnimatedBuilder(
-            animation: _animation,
-            builder: (context, child) {
-              return Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // الشعار الرئيسي
-                    Container(
-                      width: _animation.value,
-                      height: _animation.value,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/logo.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+      backgroundColor: Colors.white, // الخلفية الذهبية
+      body: AnimatedBuilder(
+        animation: _animation,
+        builder: (context, child) {
+          return Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // الشعار الرئيسي
+                Container(
+                  width: _animation.value,
+                  height: _animation.value,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/logo.png'),
+                      fit: BoxFit.cover,
                     ),
-                    const SizedBox(height: 20),
-                    // نص اسم التطبيق
-                    FadeTransition(
-                      opacity: _controller.drive(
-                        CurveTween(curve: Curves.easeIn),
-                      ),
-                      child:  Text(
-                      "Luxury Baby Gifts & Clothes",
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        color:AppColors.lighterBrown,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ), 
-                    ),
-                    const SizedBox(height: 10),
-                   
-                  ],
+                  ),
                 ),
-              );
-            },
-          ),
-        ],
+                const SizedBox(height: 20),
+                // نص اسم التطبيق
+                FadeTransition(
+                  opacity: _controller.drive(
+                    CurveTween(curve: Curves.easeIn),
+                  ),
+                  child:  Text(
+                  "Luxury Baby Gifts & Clothes",
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    color:AppColors.darkBrown,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ), 
+                ),
+                const SizedBox(height: 10),
+               
+              ],
+            ),
+          );
+        },
       ),
     );
   }

@@ -54,20 +54,13 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text(
-                      "Personalize your baby's name",
-                      style: TextStyles.font18SemiBold,
-                    ),
-                  ),
-                  20.ph,
+               
+                  10.ph,
                   const Text("Baby Name:"),
                   4.ph,
-                  SizedBox(
-                      height: 58.h,
-                      child: const AppTextFormField(
-                        hintText: '',
-                      )),
+                  const AppTextFormField(
+                    hintText: '',
+                  ),
                   16.ph,
                   const Text("Select The Font"),
                   4.ph,
@@ -119,7 +112,7 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                       );
                     }).toList(),
                   ),
-                  20.ph,
+                  8.ph,
                   GestureDetector(
                     onTap: () {
                       setState(() {
@@ -129,13 +122,13 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(_showExtraNameField
-                            ? Icons.arrow_drop_up
-                            : Icons.arrow_drop_down),
+                    
                         Text(
                           "Extra Name (optional)",
                           style: TextStyles.font17Black,
-                        ),
+                        ),    Icon(_showExtraNameField
+                            ? Icons.arrow_drop_up
+                            : Icons.arrow_drop_down),
                       ],
                     ),
                   ),
@@ -144,9 +137,9 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         8.ph,
-                        SizedBox(
-                            height: 58.h,
-                            child: const AppTextFormField(hintText: '')),
+                        const Text("Extra Name:"),
+                        4.ph,
+                        const AppTextFormField(hintText: ''),
                         16.ph,
                         const Text("Select Extra Name Font"),
                         4.ph,
@@ -201,6 +194,7 @@ class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
                         ),
                       ],
                     ),
+                    8.ph,
                 ],
               ),
             ),

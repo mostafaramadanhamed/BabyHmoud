@@ -44,7 +44,16 @@ class SignUpScreen extends StatelessWidget {
               ),
               8.ph,
               const AppTextFormField(hintText: 'Ahmed Mohamed'),
-              20.ph,
+            20.ph,
+              const Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: Text('Phone Number')),
+              8.ph,
+              AppTextFormField(
+                hintText: '000-000-0000',
+                isObscureText: true,
+             
+              ),     20.ph,
               const Align(
                 alignment: AlignmentDirectional.centerStart,
                 child: Text(
@@ -53,6 +62,7 @@ class SignUpScreen extends StatelessWidget {
               ),
               8.ph,
               const AppTextFormField(hintText: 'example@ex.com'),
+                 
               20.ph,
               // Password
               const Align(
@@ -67,8 +77,9 @@ class SignUpScreen extends StatelessWidget {
                   icon: const Icon(Icons.visibility_off_outlined),
                 ),
               ),
+        
               30.ph,
-              
+
               // Sign up button
               AppTextButton(buttonText: 'Sign Up', onPressed: () {}),
               30.ph,

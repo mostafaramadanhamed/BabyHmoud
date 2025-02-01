@@ -24,7 +24,7 @@ class CategoryItem extends StatelessWidget {
             minHeight: 140.h,
           ),
           alignment: Alignment.bottomCenter,
-          margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
+          margin: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             color: AppColors.primaryGold,
@@ -40,7 +40,7 @@ class CategoryItem extends StatelessWidget {
             ),
           ),
           child: Container(
-            height: 32.h,
+            height: 30.h,
             width: double.infinity,
             alignment: Alignment.center,
             decoration: BoxDecoration(
