@@ -10,6 +10,7 @@ import 'package:babyhmoud/features/splash/ui/splash_screen.dart';
 import 'package:babyhmoud/features/wish%20list/ui/wish_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/notification/ui/notifications_screen.dart';
 import '../../features/products/ui/product_details_screen.dart';
 
 class AppRouter {
@@ -31,16 +32,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProductsScreen());
 
     case Routes.productDetails:
-        return MaterialPageRoute(builder: (_) =>  ProductDetailsScreen());
+        return MaterialPageRoute(builder: (_) =>  const ProductDetailsScreen());
     
     case Routes.wishList:
-        return MaterialPageRoute(builder: (_) =>  WishListScreen());
+        return MaterialPageRoute(builder: (_) =>  const WishListScreen());
 
     case Routes.cart:
-        return MaterialPageRoute(builder: (_) =>  CartScreen());
+        return MaterialPageRoute(builder: (_) =>  const CartScreen());
     
     case Routes.main:
-        return MaterialPageRoute(builder: (_) => MainScreen());
+        return MaterialPageRoute(builder: (_) => const MainScreen());
+    
+    case Routes.notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
       default:
         return null;
     }

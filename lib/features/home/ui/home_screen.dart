@@ -1,8 +1,10 @@
+import 'package:babyhmoud/core/helper/navigation_extension.dart';
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
 import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:babyhmoud/features/home/ui/widgets/auto_scroll_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/routing/routes.dart';
 import '../../../core/theme/text_styles.dart';
 import '../../products/ui/widgets/product_item.dart';
 import 'widgets/category_grid_view.dart';
@@ -49,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                   // notification
                   GestureDetector(
                     onTap: () {
-                      ///TODO navigate to notification
+                      context.pushNamed(Routes.notifications);
                     },
                     child: const CircleAvatar(
                         backgroundColor: AppColors.lighterBrown,

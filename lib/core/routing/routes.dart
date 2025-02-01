@@ -11,4 +11,5 @@ class Routes {
   static const String cart = 'cart';
   static const String wishList = 'wishList';
   static const String main = 'main';
+  static const String notifications = 'notifications';
 }

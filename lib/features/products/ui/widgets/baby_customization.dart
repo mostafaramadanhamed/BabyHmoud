@@ -1,5 +1,4 @@
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
-import 'package:babyhmoud/core/theme/app_colors.dart';
 import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,13 +8,13 @@ import '../../../../core/theme/text_styles.dart';
 class BabyNameCustomizerScreen extends StatefulWidget {
   const BabyNameCustomizerScreen({super.key});
   @override
-  _BabyNameCustomizerScreenState createState() =>
+  State<BabyNameCustomizerScreen> createState() =>
       _BabyNameCustomizerScreenState();
 }
 
 class _BabyNameCustomizerScreenState extends State<BabyNameCustomizerScreen> {
-  final TextEditingController _babyNameController = TextEditingController();
-  final TextEditingController _extraNameController = TextEditingController();
+  //final TextEditingController _babyNameController = TextEditingController();
+  //final TextEditingController _extraNameController = TextEditingController();
   String? _selectedFont;
   String? _selectedExtraFont;
   String? _selectedColor;
