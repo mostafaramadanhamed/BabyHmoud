@@ -32,9 +32,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.0.0
   flutter_native_splash: ^2.4.4
   flutter_rating_bar: ^4.0.1
   flutter_screenutil: ^5.9.3
+  shopify_flutter: ^2.4.1
 
 dev_dependencies:
   flutter_lints: ^4.0.0
