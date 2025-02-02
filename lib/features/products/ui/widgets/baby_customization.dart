@@ -1,8 +1,6 @@
 import 'package:babyhmoud/core/helper/spacing_extension.dart';
 import 'package:babyhmoud/core/widgets/app_text_form_filed.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/theme/text_styles.dart';
 
 class BabyNameCustomizerScreen extends StatefulWidget {
