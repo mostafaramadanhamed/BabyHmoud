@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717389286379",
+    "project_id": "baby-humod-store",
+    "storage_bucket": "baby-humod-store.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717389286379:android:d00e4ec318e596606c27ae",
+        "android_client_info": {
+          "package_name": "com.ecommerce.baby.babyhmoud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWMEPsgn4fbNe8V3Zg1f7bzhkqiKD0ZG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
